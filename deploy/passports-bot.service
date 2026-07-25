@@ -1,0 +1,15 @@
+[Unit]
+Description=Passports Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/passports-bot
+ExecStart=/opt/passports-bot/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/passports-bot/.env
+
+[Install]
+WantedBy=multi-user.target
